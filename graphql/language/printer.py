@@ -148,6 +148,9 @@ class PrintingVisitor(Visitor):
         # type: (Any, *Any) -> str
         return json.dumps(node.value)
 
+    def leave_NullValue(self, node, *args):
+        return json.dumps(node.value)
+
     def leave_EnumValue(self, node, *args):
         # type: (Any, *Any) -> str
         return node.value
